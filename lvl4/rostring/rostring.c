@@ -4,11 +4,10 @@
 
 void rostring(char *str)
 {
-    int flag = 0;
     int i = 0;
     if(!str)
         return ;
-    while(str[i] == ' ' || str[i] == '\t' && str[i] =='\0')
+    while(str[i] && str[i] == ' ' || str[i] == '\t')
         i++;
     int start = i;
     while(str[i] && (str[i] != ' ' && str[i] != '\t'))
@@ -18,7 +17,7 @@ void rostring(char *str)
         i++;
     while(str[i])
     {
-        while(str[i] != ' ' && str[i] != '\t' && str[i])
+        while(str[i] && str[i] != ' ' && str[i] != '\t')
         {
             write(1, &str[i], 1);
             i++;
